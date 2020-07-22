@@ -37,9 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'apispace',
-    'rest_framework'
+    'django.contrib.staticfiles'
 ]
 
 MIDDLEWARE = [
@@ -75,10 +73,12 @@ WSGI_APPLICATION = 'pseudoapi.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-with open(os.path.join(BASE_DIR, "databases.json")) as file:
-    DATABASES = json.load(file)
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
