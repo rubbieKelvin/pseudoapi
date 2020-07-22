@@ -37,7 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles'
+    'django.contrib.staticfiles',
+    
+    # MANUALLY ADDED APPS
+    'workspace',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'authapi',
+    'djoser'
 ]
 
 MIDDLEWARE = [
@@ -120,3 +127,15 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
+# REST FRAMEWORK
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
+
+# DJOSER
+DJOSER = {
+    "LOGOUT_ON_PASSWORD_CHANGE": True
+}
