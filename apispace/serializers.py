@@ -10,6 +10,6 @@ class ProjectSerializer(serializers.ModelSerializer):
 class DevSerializer(serializers.ModelSerializer):
     class Meta:
         model = Dev
-        projects = ProjectSerializer()
+        projects = ProjectSerializer(many=True)
         fields = ["id", "name", "email", "joined", "projects"]
-        read_only_fields = ["id", "email", "joined"]
+        read_only_fields = ["id", "joined", "projects"]
