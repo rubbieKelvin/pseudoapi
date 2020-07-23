@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="">
+    <title>Pseudo API</title>
+    <script src="{% static 'vendor/vue.js' %}"></script>
+    <script src="{% static 'vendor/axios.min.js' %}"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Pseudo API</h1>
+        <p>choose an action</p>
+
+        <push-button goto="/signup" text="signup" v-bind:accent="accent"></push-button>
+        <push-button goto="/login" text="login" v-bind:accent="accent"></push-button>
+    </div>
+
+    <script src="{% static 'js/components/push-button.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

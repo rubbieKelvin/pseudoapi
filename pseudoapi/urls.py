@@ -16,8 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from . import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("workspace/", include("workspace.urls")),
-    path("auth/", include("authapi.urls"))
+    path("auth/", include("authapi.urls")),
+    
+    path("", views.index, name="index")
 ]
