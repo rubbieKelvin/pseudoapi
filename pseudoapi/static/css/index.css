@@ -1,0 +1,38 @@
+#hero{
+    display: flex;
+    flex-direction: row;
+    padding: 4em;
+    padding-top: 2em;
+}
+
+#hero > div:nth-child(1){
+    width: 50%;
+}
+
+#hero > div:nth-child(1) > h2{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 4.5em;
+    width: 95%;
+    margin: 0;
+    margin-top: 30px;
+}
+
+#hero > div:nth-child(1) > p {
+    width: 50%;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4em;
+    line-height: 25px;
+    color: #333333;
+}
+
+#hero > div:nth-child(1) > div{
+    display: flex;
+    flex-direction: row;
+}
+
+#hero > div:nth-child(2){
+    width: 50%;
+
+}
