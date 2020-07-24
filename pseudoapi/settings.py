@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import json
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*x-gh*m+#!7+sedb+doux5ig(#7_j8k(d4gt)8$zb%#7iv(%fd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [] if DEBUG else ["pseudo-api.herokuapp.com"]
 
 
 # Application definition
@@ -124,6 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "pseudoapi", "static")
 ]
@@ -137,3 +139,5 @@ REST_FRAMEWORK = {
 DJOSER = {
     "LOGOUT_ON_PASSWORD_CHANGE": True
 }
+
+django_heroku.settings(locals())

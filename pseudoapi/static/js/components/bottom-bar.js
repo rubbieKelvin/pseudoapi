@@ -6,7 +6,7 @@ Vue.component("bottom-bar", {
                 footer: {
                     padding: "4em",
                     paddingTop: "0px",
-                    paddingBottom: "0px",
+                    paddingBottom: "1em",
                     display: "flex",
                     alignContent: "center"
                 }

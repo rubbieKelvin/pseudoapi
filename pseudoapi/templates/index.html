@@ -10,10 +10,13 @@
     <script src="{% static 'vendor/axios.min.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/nav-bar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/push-button.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/bottom-bar.css' %}">
 </head>
 <body>
     <div id="app">
-        <nav-bar v-bind:links="links"></nav-bar>
+        <nav-bar v-bind:links="links" v-bind:fg="colors.theme" v-bind:state="navstate"></nav-bar>
 
         <div id="hero">
             <div>

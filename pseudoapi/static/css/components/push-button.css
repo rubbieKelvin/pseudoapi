@@ -1,0 +1,27 @@
+/* textDecoration: "none",
+borderRadius: "5px",
+backgroundColor: this.bg,
+color: this.fg,
+padding: "0.9em",
+fontStyle: "normal",
+fontSize: "1.8em",
+lineHeight: "27px",
+marginRight: "0.4em" */
+
+@media(max-width: 1280px){
+    
+}
+
+@media(max-width: 1024px){
+
+}
+
+@media(max-width: 768px){
+
+}
+
+@media(max-width: 640px){
+    .push-button{
+        font-size: 1em !important;
+    }
+}

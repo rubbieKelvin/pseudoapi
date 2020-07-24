@@ -1,0 +1,1 @@
+web: gunicorn pseudoapi.wsgi --log-file -

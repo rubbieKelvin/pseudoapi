@@ -16,7 +16,7 @@ Vue.component("push-button", {
         };
     },
     template: `
-        <a v-bind:href="goto" v-bind:style="styleObject">
+        <a v-bind:href="goto" v-bind:style="styleObject" class="push-button">
             {{ text }}
         </a>
     `
