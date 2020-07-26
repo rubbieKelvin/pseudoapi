@@ -20,11 +20,20 @@ class FakeApi(models.Model):
     name    = models.CharField(max_length=15)
     descr   = models.TextField(null=True, blank=True)
     method  = models.CharField(max_length=10, choices=METHODS)
-    vars    = fields.JsonField()
-    funcs   = fields.JsonField(default=list(builtinvars.variables.keys()))
-    
+    route   = models.CharField(max_length=255, blank=True, null=True)
+
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
     body_request = fields.JsonField()
     body_response= fields.JsonField()
+
+    def generateRoute(self):
+        self.route = f"{self.id}/{self.name}"
+        self.save()
+
+    def __str__(self):
+        return f"<api route=\"{self.route}\">"
+
+    def __repr__(self):
+        return str(self)

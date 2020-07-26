@@ -25,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*x-gh*m+#!7+sedb+doux5ig(#7_j8k(d4gt)8$zb%#7iv(%fd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [] if DEBUG else ["pseudo-api.herokuapp.com"]
+ALLOWED_HOSTS = ["rubbie-io", "localhost"] if DEBUG else ["pseudo-api.herokuapp.com"]
 
 
 # Application definition

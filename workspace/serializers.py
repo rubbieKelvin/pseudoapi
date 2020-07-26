@@ -5,4 +5,4 @@ class FakeAPISerializer(ModelSerializer):
     class Meta:
         model = models.FakeApi
         fields = "__all__"
-        read_only_fields = ["funcs", "id", "ip"]
+        read_only_fields = ["id", "route"]
