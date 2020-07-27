@@ -1,5 +1,6 @@
 .hero{
 	display: flex;
+	margin-bottom: 4em;
 }
 
 .hero-left > h2{
@@ -27,6 +28,11 @@
 
 .hero-left > button:focus{
 	border: 6px solid var(--primary-faded)
+}
+
+.explore-section > h2{
+	font-size: 3em;
+	font-weight: 300;
 }
 
 

@@ -86,3 +86,29 @@ Vue.component("nav-bar", {
 		</nav>
 	`
 });
+
+Vue.component("api-card", {
+	props: {
+		pallete: Object
+	},
+	methods: {},
+	data(){
+		return {
+			style: {
+				apiCard: {
+					width: "100%",
+					height: "20em",
+					borderRadius: "1em",
+					backgroundColor: this.pallete.primaryFaded,
+					// marginBottom: "1em",
+					margin: "2em"
+				}
+			}
+		}
+	},
+	template: `
+	<div class="api-card col" v-bind:style="style.apiCard">
+
+	</div>
+	`
+});

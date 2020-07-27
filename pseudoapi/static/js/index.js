@@ -2,21 +2,23 @@ let app = new Vue({
     el: "#app",
     methods: {
     	changeIndex(index){
-    		alert(index);
+    		this.pageindex = index;
     	}
     },
     data(){
     	return {
+    		pageindex: 0,
     		pallete: {
     			primary: "var(--primary)",
     			dark: 	 "var(--dark)",
-    			lightBg: "var(--light-bg)"
+    			lightBg: "var(--light-bg)",
+    			primaryFaded: "var(--primary-faded)"
     		},
 
     		style: {
 	    		body: {
 	    			backgroundColor: "var(--light-bg)",
-	    			height: "90vh",
+	    			height: "auto",
 	    			paddingLeft: "10em",
 	    			paddingRight: "10em",
 	    			paddingTop: "2em"
