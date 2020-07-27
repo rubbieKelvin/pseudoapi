@@ -16,7 +16,8 @@ Vue.component("nav-bar", {
 					color: this.pallete.dark,
 					height: "7em",
 					paddingLeft: "10em",
-					paddingRight: "10em"
+					paddingRight: "10em",
+					boxShadow: "0 .15rem 1.75rem 0 #3a3b4526 !important"
 				},
 
 				navlink: {
@@ -96,19 +97,19 @@ Vue.component("api-card", {
 		return {
 			style: {
 				apiCard: {
-					width: "100%",
-					height: "20em",
+					width: "33.3%",
+					height: "15em",
 					borderRadius: "1em",
-					backgroundColor: this.pallete.primaryFaded,
+					backgroundColor: "#ffffff",
 					// marginBottom: "1em",
-					margin: "2em"
+					margin: "2em",
+					boxShadow: "0 .15rem 1.75rem 0 #3a3b4526 !important"
 				}
 			}
 		}
 	},
 	template: `
-	<div class="api-card col" v-bind:style="style.apiCard">
-
-	</div>
+		<div class="api-card" v-bind:style="style.apiCard">
+		</div>
 	`
 });

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700&display=swap');
+
 *{
 	font-family: "Poppins" !important;
 }
@@ -54,15 +56,33 @@ body{
     .search-bar-btn{
     	width: 25% !important;
     }
+
+    .api-card{
+		width: 100% !important;
+		margin: 0px !important;
+		margin-bottom: 1em !important;
+	}
 }
 
 @media(max-width: 640px){
     .navbar{
 		padding-right: 0.8em !important;
 		padding-left: 0.8em !important;
+		height: 5em !important;
 	}
 
 	.navbar-brand{
-		font-size: 1em;
+		font-size: 1.5em  !important;
+	}
+
+	#navbarTogglerDemo02{
+		background-color: #ffffff;
+		padding: 1em;
+		border-radius: 1em;
+	}
+
+	.explore-section > h2{
+		font-size: 2em !important;
+		font-weight: 500 !important;
 	}
 }

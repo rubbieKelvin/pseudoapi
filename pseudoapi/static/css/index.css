@@ -1,3 +1,7 @@
+.vh100{
+	height: 90vh !important;
+}
+
 .hero{
 	display: flex;
 	margin-bottom: 4em;
@@ -35,6 +39,11 @@
 	font-weight: 300;
 }
 
+.api-list{
+	display: flex;
+	flex-direction: row;
+}
+
 
 @media(max-width: 1280px){
 	.hero-left > h2{
@@ -63,11 +72,29 @@
     .hero-right{
     	display: none;
     }
+
+    .api-list{
+		flex-direction: column;
+	}
 }
 
 @media(max-width: 640px){
     .body{
 		padding-left: 0.8em !important;
 		padding-right: 0.8em !important;
+	}
+
+	.hero-left > h2{
+		font-size: 3em;
+	}
+
+	.hero-left > p{
+		font-size: 1.1em;
+	}
+
+	.hero-left > button{
+		height: 2.7em;
+		width: auto;
+		font-size: 1.1em;
 	}
 }

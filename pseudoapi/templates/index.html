@@ -20,7 +20,7 @@
 
         <div class="body" v-bind:style="style.body">
             
-            <div class="landing-page" v-if="pageindex == 0">
+            <div class="landing-page">
                 <div class="hero">
 
                     <div class="hero-left">
@@ -60,20 +60,13 @@
                 <div class="explore-section">
                     <h2>Recently Created Pseudo-APIs</h2>
 
-                    <div class="api-list container-fluid" v-bind:style="{display: 'flex', flexDirection: 'column'}">
-                        <div class="row">
-                            <api-card v-bind:pallete="pallete"></api-card>
-                            <api-card v-bind:pallete="pallete"></api-card>
-                        </div>
-
-                        <div class="row">
-                            <api-card v-bind:pallete="pallete"></api-card>
-                            <api-card v-bind:pallete="pallete"></api-card>
-                        </div>
+                    <div class="api-list">
+                        <api-card v-bind:pallete="pallete"></api-card>
+                        <api-card v-bind:pallete="pallete"></api-card>
+                        <api-card v-bind:pallete="pallete"></api-card>
                     </div>
                 </div>
             </div>
-
 
         </div>
     </div>
