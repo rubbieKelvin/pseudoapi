@@ -1,6 +1,10 @@
 let app = new Vue({
     el: "#app",
-    data: {
-
+    data(){
+    	return {
+    		theme:{
+    			
+    		}
+    	};
     }
 });
