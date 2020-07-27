@@ -113,3 +113,60 @@ Vue.component("api-card", {
 		</div>
 	`
 });
+
+
+Vue.component("bottom-bar", {
+	props: {
+		sociallinks: Array,
+		pallete: Object
+	},
+	methods: {},
+	data(){
+		return {
+			style: {
+				footer: {
+					display: "flex",
+					boxShadow: "0px -3px 20px rgba(91, 91, 91, 0.2) !important",
+					height: "6em",
+					justifyContent: "center",
+					alignContent: "center"
+				},
+
+				footerNote: {
+					fontSize: "1.1em",
+					color: "#575757",
+					width: "65%",
+					margin: "0px",
+					display: "flex",
+					alignItems: "center"
+				},
+
+				socialLinks: {
+					width: "20%",
+					display: "flex"
+				},
+
+				socialLink: {
+					width: "33.3%",
+					display: "flex",
+					justifyContent: "center",
+					alignContent: "center"
+				},
+
+				socialLinkImg: {
+
+				}
+			}
+		}
+	},
+	template: `
+		<footer v-bind:style="style.footer">
+			<p v-bind:style="style.footerNote" class="footer-note">Rubbie Kelvin</p>
+			<div v-bind:style="style.socialLinks" class="footer-links">
+				<a class="footer-link" v-bind:href="link.route" v-bind:style="style.socialLink" v-bind:key="link.id" v-for="link in sociallinks">
+					<img v-bind:src="link.src" v-bind:style="style.socialLinkImg"/>
+				</a>
+			</div>
+		</footer>
+	`
+});

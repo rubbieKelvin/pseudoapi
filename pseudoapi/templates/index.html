@@ -69,6 +69,14 @@
             </div>
 
         </div>
+
+        <bottom-bar v-bind:pallete="pallete" v-bind:sociallinks="
+            [
+                {route: 'https://twitter.com/rubbiekelvin', src: `{% static 'images/twitter.svg'%}`},
+                {route: 'https://www.linkedin.com/in/rubbie-kelvin-831400176', src: `{% static 'images/linkedin.svg'%}`},
+                {route: 'https://github.com/kelvinrubbie', src: `{% static 'images/github.svg'%}`},
+            ]
+        "></bottom-bar>
     </div>
     
     <script src="{% static 'vendor/axios.min.js' %}"></script>

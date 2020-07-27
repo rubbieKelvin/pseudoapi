@@ -37,6 +37,10 @@ body{
 	border: 2px solid var(--primary-faded) !important;
 }
 
+.footer-link:hover{
+	background-color: #f8f8f8;
+}
+
 @media(max-width: 1280px){
     
 }
@@ -85,4 +89,12 @@ body{
 		font-size: 2em !important;
 		font-weight: 500 !important;
 	}
+
+	.footer-note{
+		width: 50%;
+	}
+
+	.footer-links{
+		width: 35%
+;	}
 }

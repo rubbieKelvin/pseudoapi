@@ -1,10 +1,10 @@
-.vh100{
-	height: 90vh !important;
-}
-
 .hero{
 	display: flex;
 	margin-bottom: 4em;
+}
+
+.body{
+	padding-bottom: 4em;
 }
 
 .hero-left > h2{
