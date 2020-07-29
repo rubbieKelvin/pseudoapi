@@ -41,16 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # MANUALLY ADDED APPS
-    'workspace',
-    "corsheaders",
-    'rest_framework',
-    'rest_framework.authtoken',
-    'authapi',
-    'djoser'
+    'apifactory',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -128,6 +123,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "pseudoapi", "static")
 ]
@@ -136,18 +132,5 @@ STATICFILES_DIRS = [
 REST_FRAMEWORK = {
     
 }
-
-# DJOSER
-DJOSER = {
-    "LOGOUT_ON_PASSWORD_CHANGE": True
-}
-
-# CORS
-
-CSRF_COOKIE_NAME = "csrftoken"
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:8000',
-    'https://pseudo-api.herokuapp.com'
-]
 
 django_heroku.settings(locals())

@@ -19,10 +19,7 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("workspace/", include("workspace.urls")),
-    path("auth/", include("authapi.urls")),
-    
+    path('admin/', admin.site.urls),    
     path("", views.index, name="index"),
     path("home/", views.home, name="index")
 ]
