@@ -2,8 +2,17 @@ let app = new Vue({
     el: "#app",
     methods: {
     	changeIndex(index){
-    		this.pageindex = index;
-    	}
+
+    		if (index == 1){
+    			$("#login-modal").modal({});
+    		}else if (index == 2){
+    			alert("about");
+    		}
+    	},
+
+		openSignUp(e){
+			$("#signup-modal").modal({})
+		}
     },
     data(){
     	return {

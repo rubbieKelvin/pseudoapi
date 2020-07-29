@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*x-gh*m+#!7+sedb+doux5ig(#7_j8k(d4gt)8$zb%#7iv(%fd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["rubbie-io", "localhost"] if DEBUG else ["pseudo-api.herokuapp.com"]
 
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     
     # MANUALLY ADDED APPS
     'workspace',
+    "corsheaders",
     'rest_framework',
     'rest_framework.authtoken',
     'authapi',
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -139,5 +141,13 @@ REST_FRAMEWORK = {
 DJOSER = {
     "LOGOUT_ON_PASSWORD_CHANGE": True
 }
+
+# CORS
+
+CSRF_COOKIE_NAME = "csrftoken"
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:8000',
+    'https://pseudo-api.herokuapp.com'
+]
 
 django_heroku.settings(locals())

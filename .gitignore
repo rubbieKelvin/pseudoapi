@@ -4,3 +4,4 @@ __pycache__
 venv/
 notes.txt
 staticfiles
+.ipynb_*

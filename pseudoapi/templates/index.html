@@ -27,7 +27,7 @@
                         <h2>Create Temporary APIs for testing frontend projects.</h2>
                         <p><b>NOTE:</b> APIs created with this tool should never be used in production</p>
 
-                        <button type="button" class="btn btn-lg">Get Started</button>
+                        <button v-on:click="openSignUp" type="button" class="btn btn-lg">Get Started</button>
                         <button type="button" class="btn btn-lg">Download CLI</button>
                     </div>
                     
@@ -70,6 +70,9 @@
 
         </div>
 
+        <signup-modal id="signup-modal"></signup-modal>
+        <login-modal id="login-modal"></login-modal>
+
         <bottom-bar v-bind:pallete="pallete" v-bind:sociallinks="
             [
                 {route: 'https://twitter.com/rubbiekelvin', src: `{% static 'images/twitter.svg'%}`},
@@ -80,6 +83,7 @@
     </div>
     
     <script src="{% static 'vendor/axios.min.js' %}"></script>
+    <script src="{% static 'js/request.js' %}"></script>
 
     <script src="{% static 'vendor/jquery-3.4.1.min.js' %}"></script>
     <script src="{% static 'vendor/popper.min.js' %}"></script>

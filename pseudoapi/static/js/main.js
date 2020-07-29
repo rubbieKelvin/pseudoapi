@@ -66,15 +66,15 @@ Vue.component("nav-bar", {
 
 			<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 				<ul class="navbar-nav mx-auto mt-2 mt-lg-0">
-					<li class="nav-item" v-bind:class="[(current===0)?'active':'inactive']">
+					<li class="nav-item active">
 						<a v-on:click="changeIndex(0)" class="nav-link no-outline" v-bind:style="style.navlink" href="#">Home</a>
 					</li>
 					
-					<li class="nav-item" v-bind:class="[(current===1)?'active':'inactive']">
+					<li class="nav-item">
 						<a v-on:click="changeIndex(1)" class="nav-link no-outline" v-bind:style="style.navlink" href="#">Login</a>
 					</li>
 					
-					<li class="nav-item" v-bind:class="[(current===2)?'active':'inactive']">
+					<li class="nav-item">
 						<a v-on:click="changeIndex(2)" class="nav-link no-outline" v-bind:style="style.navlink" href="#">About</a>
 					</li>
 				</ul>
@@ -170,3 +170,137 @@ Vue.component("bottom-bar", {
 		</footer>
 	`
 });
+
+Vue.component("signup-modal", {
+	props: {},
+	methods: {
+		signUp(){
+			let usr = this.data.username;
+			let eml = this.data.email;
+			let psw = this.data.password;
+
+			postrequest("auth/users/", {
+				username: usr,
+				email: eml,
+				password: psw
+			})
+
+			.then(function (response) {
+				let data = response.data;
+
+				console.log(`created account for ${data.username}`);
+
+				if (Boolean(data.username)){
+					console.log("loggin in...");
+
+					postrequest("auth/token/login/", {
+						username: data.username,
+						password: psw
+					})
+
+					.then(function (response) {
+						console.log(response.data);
+						let token = response.data.auth_token;
+
+						console.clear();
+
+						if (Boolean(token)){
+							window.localStorage.setItem("auth", token);
+							window.location = "/home";
+						}
+					})
+
+					.catch(function (error){
+
+					});
+				}
+			})
+			
+			.catch(function (error) {
+				console.log(error);
+			});
+		}
+	},
+	data(){
+		return {
+			data: {
+				username: "",
+				password: "",
+				email: ""
+			}
+		}
+	},
+	template:`
+		<div class="modal fade" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<form class="modal-content">
+			
+					<div class="modal-header">
+						<h5 class="modal-title" id="staticBackdropLabel">Sign Up</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+			
+					<div class="modal-body">
+						
+					<div class="form-group">
+						<label for="em__">Email address</label>
+						<input v-model="data.email" type="email" class="form-control" id="em__" aria-describedby="emailHelp" required>
+						<small id="emailHelp" class="form-text text-muted">We'll never send spam mails.</small>
+					</div>
+
+					<div class="form-group">
+						<label for="us__">Username</label>
+						<input v-model="data.username" type="text" class="form-control" id="us__" aria-describedby="Usr__help" required>
+						<small id="Usr__help" class="form-text text-muted">Usernames must be unique.</small>
+					</div>
+					
+					<div class="form-group">
+						<label for="pa__">Password</label>
+						<input v-model="data.password" type="password" class="form-control" id="pa__" required>
+					</div>
+
+					</div>
+			
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button v-on:click.prevent="signUp" type="submit" class="btn btn-primary">sign up</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	`
+})
+
+Vue.component("login-modal", {
+	props: {},
+	methods: {},
+	data(){
+		return {}
+	},
+	template:`
+		<div class="modal fade" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+			
+					<div class="modal-header">
+						<h5 class="modal-title" id="staticBackdropLabel">Login</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+			
+					<div class="modal-body">
+						...
+					</div>
+			
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Understood</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	`
+})

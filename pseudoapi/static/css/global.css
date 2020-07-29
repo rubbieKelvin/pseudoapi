@@ -13,7 +13,6 @@
 }
 
 body{
-	height: 100vh;
 	margin: 0px;
 	padding: 0px;
 }
@@ -91,10 +90,10 @@ body{
 	}
 
 	.footer-note{
-		width: 50%;
+		width: 45% !important;
 	}
 
 	.footer-links{
-		width: 35%
+		width: 45% !important;
 ;	}
 }
