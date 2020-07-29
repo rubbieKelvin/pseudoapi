@@ -211,13 +211,13 @@ Vue.component("signup-modal", {
 					})
 
 					.catch(function (error){
-
+						console.log(error);
 					});
 				}
 			})
 			
 			.catch(function (error) {
-				console.log(error);
+				console.error(error);
 			});
 		}
 	},
@@ -258,7 +258,8 @@ Vue.component("signup-modal", {
 					
 					<div class="form-group">
 						<label for="pa__">Password</label>
-						<input v-model="data.password" type="password" class="form-control" id="pa__" required>
+						<input v-model="data.password" type="password" class="form-control" id="pa__" describedby="psw__help" required>
+						<small id="psw__help" class="form-text text-muted">at least 8 characters.</small>
 					</div>
 
 					</div>
@@ -275,14 +276,45 @@ Vue.component("signup-modal", {
 
 Vue.component("login-modal", {
 	props: {},
-	methods: {},
+	methods: {
+		login(){
+			let usr = this.data.username;
+			let psw = this.data.password;
+
+			postrequest("auth/token/login/", {
+				username: usr,
+				password: psw
+			})
+
+			.then(function (response) {
+				console.log(response.data);
+				let token = response.data.auth_token;
+
+				console.clear();
+
+				if (Boolean(token)){
+					window.localStorage.setItem("auth", token);
+					window.location = "/home";
+				}
+			})
+
+			.catch(function (error){
+				console.error(error);
+			});
+		}
+	},
 	data(){
-		return {}
+		return {
+			data: {
+				username: "",
+				password: ""
+			}
+		}
 	},
 	template:`
 		<div class="modal fade" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
-				<div class="modal-content">
+				<form class="modal-content">
 			
 					<div class="modal-header">
 						<h5 class="modal-title" id="staticBackdropLabel">Login</h5>
@@ -292,14 +324,24 @@ Vue.component("login-modal", {
 					</div>
 			
 					<div class="modal-body">
-						...
+
+						<div class="form-group">
+							<label for="us__">Username</label>
+							<input v-model="data.username" type="text" class="form-control" id="us__" required>
+						</div>
+						
+						<div class="form-group">
+							<label for="pa__">Password</label>
+							<input v-model="data.password" type="password" class="form-control" id="pa__" required>
+						</div>
+
 					</div>
 			
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Understood</button>
+						<button v-on:click.prevent="login" type="submit" class="btn btn-primary">login</button>
 					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 	`

@@ -23,5 +23,6 @@ urlpatterns = [
     path("workspace/", include("workspace.urls")),
     path("auth/", include("authapi.urls")),
     
-    path("", views.index, name="index")
+    path("", views.index, name="index"),
+    path("home/", views.home, name="index")
 ]
