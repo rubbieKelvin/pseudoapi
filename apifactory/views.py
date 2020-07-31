@@ -5,6 +5,8 @@ from urllib.parse import unquote
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from django.views.decorators.csrf import csrf_exempt
+
 from rest_framework import views
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -18,6 +20,7 @@ class PsuedoApiListCreateView(views.APIView):
 		serializer = PseudoApiSerialzer(queryset, many=True)
 		return Response(serializer.data)
 
+	@csrf_exempt
 	def post(self, request):
 		method = request.data.get("method")
 		request_body_template = request.data.get("body_request")
@@ -42,6 +45,7 @@ class PsuedoApiListCreateView(views.APIView):
 		return Response(serializer.data, status=HTTP_200_OK)
 
 
+@csrf_exempt
 @api_view(["GET", "POST"])
 def call_pseudoapi(request, route):
 	route = unquote(route)
