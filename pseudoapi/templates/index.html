@@ -1,19 +1,13 @@
-{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="">
-    <title>Pseudo API</title>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pseudo API</title>
 
-    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.css' %}">
-    
-</head>
-<body>
-    Hello World
-    <script src="{% static 'vendor/jquery-3.4.1.min.js' %}"></script>
-    <script src="{% static 'vendor/popper.min.js' %}"></script>
-    <script src="{% static 'vendor/bootstrap/js/bootstrap.js' %}"></script>
-</body>
+        <link rel="stylesheet" href="{{ url_for('static', filename='index.css', _external=True) }}">
+    </head>
+    <body>
+        <p>Hello, World !</p>
+    </body>
 </html>

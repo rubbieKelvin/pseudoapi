@@ -1,7 +1,3 @@
-__pycache__
-*/__pycache__
-.vscode
+**/__pycache__
 venv/
-notes.txt
-staticfiles
-.ipynb_*
+serve.bash
