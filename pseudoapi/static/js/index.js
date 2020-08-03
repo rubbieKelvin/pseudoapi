@@ -209,10 +209,8 @@ const app = new Vue({
                 }
             });
 
-            newapi["response"] = response;
-            newapi["request"] = request;
-            
-            console.log(newapi);
+            newapi["response"] = JSON.stringify(response);
+            newapi["request"] = JSON.stringify(request);
             
             axios.post("/workspace/apis/", newapi)
             .then((response) => {
