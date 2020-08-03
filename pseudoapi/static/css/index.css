@@ -1,0 +1,91 @@
+*{
+    font-family: "Poppins";
+}
+
+:root{
+    --main-color: #4e73df;
+    --dark: #222222;
+    --white: #ffffff;
+}
+
+.__nav {
+	background-color: var(--white);
+	color: var(--dark);
+	box-shadow: 0 .15rem 1.75rem 0 #3a3b4526;
+	padding-right: 10em;
+	padding-left: 10em;
+	height: 5.5em;
+}
+
+.__nav > .navbar-brand{
+    color: var(--dark);
+}
+
+.__nav-list > li{
+    margin-left: 1em;
+}
+
+.__hero{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    margin-top: 4em;
+}
+
+.__left{
+    width: 50%;
+}
+
+.__left > h1{
+    font-size: 4em;
+}
+
+.__left > p{
+    font-size: 1.6em;
+}
+
+
+.__right{
+    width: 50%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+
+
+
+
+
+
+/* ############ WIDGETS ############### */
+.request-widget{
+    width: 100%;
+    max-height: 11em;
+    border: 1px solid #dbdbdb;
+    border-radius: 6px;
+    padding: 2px;
+    overflow-y: auto;
+}
+
+.request-widget > button{
+    width: 100%;
+}
+
+.key-value{
+    display: flex;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.key-value > div{
+    display: flex;
+}
+
+.key-value > div > input{
+    width: 50%;
+}
+
+.key-value > div > input[type="checkbox"]{
+    margin-left: 2px;
+    width: auto;
+}

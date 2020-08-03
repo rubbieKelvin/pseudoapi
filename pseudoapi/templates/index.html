@@ -1,13 +1,108 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pseudo API</title>
+<html lang="en">
 
-        <link rel="stylesheet" href="{{ url_for('static', filename='index.css', _external=True) }}">
-    </head>
-    <body>
-        <p>Hello, World !</p>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo API</title>
+
+    <script src="{{ url_for('static', filename='js/vue.js') }}"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg __nav">
+
+        <a class="navbar-brand" href="#">&lt;PseudoAPI/&gt;</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto __nav-list">
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Source</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Help</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Rubbie
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="https://twitter.com/kelvinrubbie">Twitter</a>
+                        <a class="dropdown-item" href="https://github.com/rubbiekelvin">Github</a>
+                        <a class="dropdown-item" href="https://www.linkedin.com/in/rubbie-kelvin-831400176">LinkedIn</a>
+
+                        <div class="dropdown-divider"></div>
+                        
+                        <a class="dropdown-item" href="#">Portfolio</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- body -->
+    <div class="__hero" id="app">
+
+        <div class="__left">
+            <h1>Create temporary APIs for testing front-end projects.</h1>
+            <p>WARNING: apis are deleted after a week, never use in production!.</p>
+            <button type="button" class="btn btn-primary">How it works</button>
+        </div>
+
+        <div class="__right">
+
+            <form>
+                <div class="form-group">
+                    <label for="input-method">Method</label>
+               
+                    <select v-model="formdata.method" id="input-method" class=" custom-select form-control">
+                        <option selected>get</option>
+                        <option>post</option>
+                    </select>
+
+                </div>
+
+                <label for="req--">Request</label>
+                <dict-widget v-model="formdata.request" id="req--" v-on:add-row="addRequestRow" v-on:del-row="delRequestRow" select></dict-widget>
+
+                <label for="resp-">Response</label>
+                <dict-widget v-model="formdata.response" id="resp-" v-on:add-row="addResponseRow" v-on:del-row="delResponseRow"></dict-widget>
+
+                <div class="form-group form-check">
+                    <input v-model="formdata.many" type="checkbox" class="form-check-input" id="input-many">
+                    <label class="form-check-label" for="input-many" style="margin-left: 0.4em;">respond as list</label>
+                </div>
+
+                <button v-on:click.prevent="createapi" type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+            <modal-alert v-bind:id="modalalert.id" v-bind:message="modalalert.message" v-bind:label="modalalert.label"></modal-alert>
+        </div>
+
+
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/axios.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+
 </html>

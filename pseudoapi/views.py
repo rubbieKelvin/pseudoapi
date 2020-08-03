@@ -48,7 +48,7 @@ class CallApiView(Resource):
 		api = PseudoAPI.query.filter_by(route=route).first_or_404()
 
 
-		if not api.method == method:
+		if not api.method.lower() == method.lower():
 			return {"error":"method not supported"}, 405
 
 		engine = PseudoEngine(api, form=request.form, param=request.args)
