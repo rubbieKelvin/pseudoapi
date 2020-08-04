@@ -3,7 +3,6 @@
 }
 
 :root{
-    --main-color: #4e73df;
     --dark: #222222;
     --white: #ffffff;
 }
@@ -12,8 +11,6 @@
 	background-color: var(--white);
 	color: var(--dark);
 	box-shadow: 0 .15rem 1.75rem 0 #3a3b4526;
-	padding-right: 10em;
-	padding-left: 10em;
 	height: 5.5em;
 }
 
@@ -27,7 +24,7 @@
 
 .__hero{
     display: flex;
-    width: 80%;
+    width: 100%;
     margin: auto;
     margin-top: 4em;
 }
@@ -88,4 +85,37 @@
 .key-value > div > input[type="checkbox"]{
     margin-left: 2px;
     width: auto;
+}
+
+
+
+@media(max-width: 640px){
+    .__nav {
+        height: auto;
+    }
+
+    .__hero{
+        flex-direction: column;
+        margin-top: 1.5em;
+    }
+
+    .__left{
+        width: 100%;
+        margin-bottom: 4em;
+    }
+
+    .__right{
+        width: 100%;
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+
+    .__left > h1{
+        font-size: 2.2em;
+    }
+    
+    .__left > p{
+        font-size: 1em;
+    }
+    
 }
