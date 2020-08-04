@@ -7,8 +7,12 @@
     --white: #ffffff;
 }
 
+.navbar-brand{
+    color: #ffffff !important;
+}
+
 .__nav {
-	background-color: var(--white);
+	background-color: var(--primary);
 	color: var(--dark);
 	box-shadow: 0 .15rem 1.75rem 0 #3a3b4526;
 	height: 5.5em;
